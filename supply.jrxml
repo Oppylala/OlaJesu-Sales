@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null"  pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d941689-a7c4-4543-8742-5450e25c1bfd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="from" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="shop" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+*
+FROM
+ supplystock Where Shopname = $P{shop} And SupplyDate between $P{from} and $P{to}]]>
+	</queryString>
+	<field name="SupplyId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ShopName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Director" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Productname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Quantity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="StockValue" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SupplyDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Agent" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{StockValue}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="41" uuid="64b17df9-d53b-4a3d-a240-5ddb324c1c57"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Bookman Old Style" size="24" isBold="false"/>
+				</textElement>
+				<text><![CDATA[OlaJesu Nig. Enterprises]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="555" height="32" uuid="f70e52f3-1530-406c-b318-df363db88946"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Prestige12 BT" size="20" isBold="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Supply Way Bill]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="47" height="20" uuid="e8ce4936-9d24-422c-acf7-d1f6a9bd6ba2"/>
+				<text><![CDATA[SupplyId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="0" width="74" height="20" uuid="7b4ada37-b169-4409-8ee8-fdc0cfa6fe74"/>
+				<text><![CDATA[ShopName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="0" width="52" height="20" uuid="323fd8b3-eefe-4451-984a-1fab9fad29f7"/>
+				<text><![CDATA[Director]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="3" width="72" height="20" uuid="6fdc8a18-f10f-487f-85a1-43b21cff5a37"/>
+				<text><![CDATA[Productname]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="0" width="53" height="20" uuid="4d873d1b-a05e-4cab-8ddf-c896e21219be"/>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="0" width="39" height="20" uuid="10a1d6d6-8196-4ca3-9846-2f4d6423dd67"/>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="0" width="63" height="20" uuid="4c3dedb8-fda7-473a-a692-245e2b3bae06"/>
+				<text><![CDATA[StockValue]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="0" width="56" height="20" uuid="a0ac52aa-1878-4dc9-bdaa-097efbb16699"/>
+				<text><![CDATA[SupplyDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="469" y="0" width="76" height="20" uuid="ff3fa22e-4d88-4cad-86fb-8fc37bf843a2"/>
+				<text><![CDATA[Agent]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="47" height="20" uuid="5aac0499-1371-49ad-9113-0b3aa7a70342"/>
+				<textFieldExpression><![CDATA[$F{SupplyId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="0" width="74" height="20" uuid="4076c3aa-4a70-4379-bfa8-d29b453c23c8"/>
+				<textFieldExpression><![CDATA[$F{ShopName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="0" width="65" height="20" uuid="60aa7440-fbe7-4dfe-a8f7-0507dbf16097"/>
+				<textFieldExpression><![CDATA[$F{Director}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="0" width="72" height="20" uuid="3093fb65-c894-4b81-bf67-496640a91f29"/>
+				<textFieldExpression><![CDATA[$F{Productname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="0" width="53" height="20" uuid="46807fb2-e845-4b55-8709-301fe31cc63c"/>
+				<textFieldExpression><![CDATA[$F{Quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="0" width="39" height="20" uuid="b6de5458-3990-4948-9357-d4ae909abb3f"/>
+				<textFieldExpression><![CDATA[$F{Rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="63" height="20" uuid="9cba091c-1ab0-4beb-a299-722dfe81a262"/>
+				<textFieldExpression><![CDATA[$F{StockValue}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="413" y="0" width="44" height="20" uuid="cfdfb583-b13a-4fe6-9d14-36aa4c6be49b"/>
+				<textFieldExpression><![CDATA[$F{SupplyDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="469" y="0" width="76" height="20" uuid="ed375656-65ac-4d82-8cad-7b6ee32c0676"/>
+				<textFieldExpression><![CDATA[$F{Agent}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="35" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="e3ca0012-5475-4a95-9ddc-8eb5129a3a00"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="457" y="0" width="100" height="20" uuid="9dc7d35c-3ad6-4cd8-9351-178ecb4680db"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="250" y="0" width="100" height="27" uuid="c362d427-c549-4b04-a0a6-b23f73f0b7d1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Total Amount   = ]]></text>
+			</staticText>
+			<textField pattern="N #,#00.00" isBlankWhenNull="true">
+				<reportElement x="353" y="0" width="100" height="27" uuid="1afc65fc-c9ad-42e3-914e-b4c36795f2c0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="457" y="0" width="100" height="27" uuid="c37559c9-668d-471e-8574-f734cafd15a2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Outlet's Signature]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
